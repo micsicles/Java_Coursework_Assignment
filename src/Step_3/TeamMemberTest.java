@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Author Michael Burns :- B0035365 date 17/03/2020
+//Referances that helped with the below code can be seen in the Coursework Report
 package Step_3;
 
 // set up of label names and display text size + display text area

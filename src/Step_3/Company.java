@@ -1,8 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+// Author Michael Burns :- B0035365 date 17/03/2020
+//Referances that helped with the below code can be seen in the Coursework Report
+
 package Step_3;
 
 import javax.swing.JFrame;
@@ -265,7 +263,7 @@ public class Company extends javax.swing.JFrame {
         DefaultMutableTreeNode selectedNode =(DefaultMutableTreeNode)ProjectsTree.getLastSelectedPathComponent();
         DefaultMutableTreeNode newDates = new DefaultMutableTreeNode(datesTextField.getText());
          //if(selectedNode.isRoot()){                                                                                         
-         //   warningLabel.setText("You must select a Project");
+         //   warningLabel.setText("You must select a Project");    // without this shows the error message 
        // }else
        {
         if(selectedNode != null){
@@ -286,8 +284,8 @@ public class Company extends javax.swing.JFrame {
         DefaultTreeModel model=(DefaultTreeModel)ProjectsTree.getModel();
         DefaultMutableTreeNode selectedNode =(DefaultMutableTreeNode)ProjectsTree.getLastSelectedPathComponent();        
         if(selectedNode.isRoot()){
-            warningLabel.setText("You can't delete root");
-    }else{
+            warningLabel.setText("You can't delete root");          
+    }else{        
     if(selectedNode !=null){
         model.removeNodeFromParent(selectedNode);
     }else{
