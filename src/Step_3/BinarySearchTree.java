@@ -37,8 +37,18 @@ public class BinarySearchTree extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         inorderSearch.setText("InOrder");
+        inorderSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                inorderSearchMouseClicked(evt);
+            }
+        });
 
         preOrderSearch.setText("PreOrder");
+        preOrderSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                preOrderSearchMouseClicked(evt);
+            }
+        });
         preOrderSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 preOrderSearchActionPerformed(evt);
@@ -46,6 +56,11 @@ public class BinarySearchTree extends javax.swing.JFrame {
         });
 
         postOrderSearch.setText("PostOrder");
+        postOrderSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                postOrderSearchMouseClicked(evt);
+            }
+        });
 
         backToProjects.setText(" Projects");
         backToProjects.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,6 +123,24 @@ public class BinarySearchTree extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    // this is the starting point for the traversals still to work out and figure other parts of the code to be able to link it all in to one...
+   public String getTraversals() {
+        String traversalsDetails = new String();
+        if (Company.ProjectsTree != null) {
+            traversalsDetails += "in order\n";
+            traversalsDetails += Company.ProjectsTree + "\n";
+            traversalsDetails += "pre order\n";
+            traversalsDetails += Company.ProjectsTree + "\n";
+            traversalsDetails += "post order\n";
+            traversalsDetails += Company.ProjectsTree + "\n";
+            traversalsDetails += "reverse order\n";
+            traversalsDetails += Company.ProjectsTree + "\n";
+        } else {
+            traversalsDetails += "There are no projects to display";
+        }
+        return traversalsDetails;
+    }
+   
     private void preOrderSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preOrderSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_preOrderSearchActionPerformed
@@ -135,6 +168,55 @@ public class BinarySearchTree extends javax.swing.JFrame {
         tmt.setLocationRelativeTo(null);        
         this.dispose(); 
     }//GEN-LAST:event_backToTeamMemberMouseClicked
+
+    private String getInOrder(Company ProjectTree) {
+        String inOrderDetails = new String();
+        if (ProjectTree != null) {
+            inOrderDetails += this.getInOrder(ProjectTree);
+            inOrderDetails += ProjectTree + "  ";
+            inOrderDetails += this.getInOrder(ProjectTree);
+        }
+        return inOrderDetails;
+    }
+    private void inorderSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_inorderSearchMouseClicked
+            String inOrderDetails = new String();
+        if (Company.ProjectsTree != null) {
+           // inOrderDetails += this.inorderSearchMouseClicked();
+            inOrderDetails += Company.ProjectsTree + "  ";
+           // inOrderDetails += this.inorderSearchMouseClicked(Company.ProjectsTree);
+        }
+       // return inOrderDetails;
+    }//GEN-LAST:event_inorderSearchMouseClicked
+
+        private String getPreOrder(Company ProjectTree) {
+        String preOrderDetails = new String();
+        if (ProjectTree != null) {
+            preOrderDetails += ProjectTree + "  ";
+            preOrderDetails += this.getPreOrder(ProjectTree);
+            preOrderDetails += this.getPreOrder(ProjectTree);
+        }
+        return preOrderDetails;
+    } 
+    private void preOrderSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_preOrderSearchMouseClicked
+        String preOrderDetails = new String();
+        if (Company.ProjectsTree != null) {
+            preOrderDetails += Company.ProjectsTree  + "  ";
+            //preOrderDetails += this.preOrderSearchMouseClicked(ProjectsTree);
+            //preOrderDetails += this.preOrderSearchMouseClicked(ProjectsTree);
+        }
+        //return preOrderDetails;
+    }//GEN-LAST:event_preOrderSearchMouseClicked
+
+    private void postOrderSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_postOrderSearchMouseClicked
+        String postOrderDetails = new String();
+        if (Company.ProjectsTree != null) {
+            //postOrderDetails += this.getPostOrderSearchMouseClicked(ProjectsTree);
+            //postOrderDetails += this.getPostOrderSearchMouseClicked(ProjectsTree);
+            postOrderDetails += Company.ProjectsTree + "  ";
+        }
+       // return postOrderDetails;
+    
+    }//GEN-LAST:event_postOrderSearchMouseClicked
 
     /**
      * @param args the command line arguments

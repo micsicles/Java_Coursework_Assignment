@@ -72,12 +72,16 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="InOrder"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="inorderSearchMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="preOrderSearch">
       <Properties>
         <Property name="text" type="java.lang.String" value="PreOrder"/>
       </Properties>
       <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="preOrderSearchMouseClicked"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="preOrderSearchActionPerformed"/>
       </Events>
     </Component>
@@ -85,6 +89,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="PostOrder"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="postOrderSearchMouseClicked"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="backToProjects">
       <Properties>
